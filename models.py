@@ -11,7 +11,7 @@ def connect_db(app):
 class Pet(db.Model):
     '''Database model for Users'''
 
-    __tablename__ = 'users'
+    __tablename__ = 'pets'
 
     def __repr__(self):
         '''Show additional info about the user'''

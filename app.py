@@ -18,6 +18,9 @@ db.create_all()
 @app.route('/')
 def root():
     '''Homepage redirects to list of all users'''
-    return redirect('/users')
+    pets = Pets.query.all()
+
+
+    return render_template('index.html', pets=pets)
 
 #

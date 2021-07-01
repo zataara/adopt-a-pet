@@ -21,9 +21,14 @@ class Pet(db.Model):
     id = db.Column(db.Integer,
                     primary_key=True,
                     autoincrement=True)
-    first_name = db.Column(db.String(30),
+    name = db.Column(db.String(30),
                             nullable=False)
-    last_name = db.Column(db.String(30),
+    species = db.Column(db.String(30),
                             nullable=False)
-    img_url = db.Column(db.String)
+    photo_url = db.Column(db.String)
+    age = db.Column(db.Integer)
+    notes = db.Column(db.String)
+    available = db.Column(db.Boolean,
+                            default=True)
+                            
 

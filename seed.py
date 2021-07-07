@@ -11,11 +11,11 @@ db.create_all()
 Pet.query.delete()
 
 #Create some new pets
-Fido = Pet(name='Fido', species='Terrier')
-Spot = Pet(name='Spot', species='Beagle')
-Tucker = Pet(name='Tukcker', species='Cockapoo')
-Tywin = Pet(name='Tywin', species='Belgian Shepher')
-Lyra = Pet(name='Lyra', species='Calico')
+Fido = Pet(name='Fido', species='Terrier', age=4, photo_url='')
+Spot = Pet(name='Spot', species='Beagle', age=1, photo_url='')
+Tucker = Pet(name='Tukcker', species='Cockapoo', age=7, photo_url='')
+Tywin = Pet(name='Tywin', species='Belgian Shepher', age=6, photo_url='')
+Lyra = Pet(name='Lyra', species='Calico', age=1, photo_url='')
 
 #Move new pets to session
 db.session.add(Fido)

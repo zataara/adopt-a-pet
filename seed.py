@@ -11,11 +11,11 @@ db.create_all()
 Pet.query.delete()
 
 #Create some new pets
-Fido = Pet(name='Fido', species='Terrier', age=4, photo_url='')
-Spot = Pet(name='Spot', species='Beagle', age=1, photo_url='')
-Tucker = Pet(name='Tukcker', species='Cockapoo', age=7, photo_url='')
-Tywin = Pet(name='Tywin', species='Belgian Shepher', age=6, photo_url='')
-Lyra = Pet(name='Lyra', species='Calico', age=1, photo_url='')
+Fido = Pet(name='Fido', species='Terrier', age=4, photo_url='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thesprucepets.com%2Fterrier-dog-breeds-5112878&psig=AOvVaw2a9GJ9-3GA1j7bOdcloZ8L&ust=1625715349389000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNjxnuGD0PECFQAAAAAdAAAAABAE')
+Spot = Pet(name='Spot', species='Beagle', age=1, photo_url='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dogzone.com%2Fbreeds%2Fbeagle%2F&psig=AOvVaw2jSg5c_N2F48Z3KNS5DflN&ust=1625715312424000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCOjL0c-D0PECFQAAAAAdAAAAABAJ')
+Tucker = Pet(name='Tukcker', species='Cockapoo', age=7, photo_url='https://www.instagram.com/p/Bt1t1FAnEPY/')
+Tywin = Pet(name='Tywin', species='Belgian Shepher', age=6, photo_url='https://www.instagram.com/p/BcGQEpNF35M/')
+Lyra = Pet(name='Lyra', species='Calico', age=1, photo_url='https://www.instagram.com/p/CG3YDdLFNPNTcOCOaqQ5xsfXzGmqcxcLl8OYjU0/')
 
 #Move new pets to session
 db.session.add(Fido)

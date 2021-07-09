@@ -24,3 +24,10 @@ def root():
     return render_template('index.html', pets=pets)
 
 #
+@app.route('/add')
+def add_pet():
+    '''Page to add a new pet to the adoption agency'''
+    if form.validate_on_submit():
+        name = form.name.data
+        species = form.species.data
+        

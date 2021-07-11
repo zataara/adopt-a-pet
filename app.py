@@ -30,4 +30,4 @@ def add_pet():
     if form.validate_on_submit():
         name = form.name.data
         species = form.species.data
-        
+        photo_url = form.photo_url.data

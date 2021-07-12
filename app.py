@@ -31,3 +31,5 @@ def add_pet():
         name = form.name.data
         species = form.species.data
         photo_url = form.photo_url.data
+        age = form.age.data
+        notes = form.notes.data

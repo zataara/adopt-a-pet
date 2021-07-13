@@ -1,4 +1,4 @@
-{% extends base.html %}
+{% extends 'base.html' %}
 
 
 
@@ -12,7 +12,7 @@
 {% for pet in pets %}
 <div class='container'>
     <img src='{{pet.photo_url}}'>
-    <p>{{pet.name}} is {% if pet.available = False %}not {% endif %}Available!</p>
+    <p>{{pet.name}} is {% if pet.available == False %}not {% endif %}Available!</p>
 </div>
 
 {% endfor %}

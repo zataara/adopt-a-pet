@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}{% endblock %}
+
+
+{% block body %}
+
+<h2>{{pet.name}}}}</h2>
+
+
+<div class='container'>
+    <img src='{{pet.photo_url}}'>
+    <h3>{{pet.name}}</h3>
+    <p>{{pet.species}}</p>
+    
+    <p>{{pet.name}} is {% if pet.available == False %}not {% endif %}Available!</p>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

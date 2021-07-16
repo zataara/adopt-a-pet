@@ -40,3 +40,11 @@ def add_pet():
         return redirect('/add')
     else:
         return render_template('add.html', form=form)
+
+
+@app.route('/<int:pet_id>')
+def pet_detail(pet_id):
+
+
+
+    return render_template('detail.html')

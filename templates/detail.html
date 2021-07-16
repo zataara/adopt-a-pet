@@ -14,8 +14,29 @@
     <img src='{{pet.photo_url}}'>
     <h3>{{pet.name}}</h3>
     <p>{{pet.species}}</p>
-    
+
     <p>{{pet.name}} is {% if pet.available == False %}not {% endif %}Available!</p>
+</div>
+
+<div class='container'>
+    <h3>Edit {{pet.name}}</h3>
+    <form id='edit-pet-form' method='POST'>
+        {{ form.hidden_tag() }}
+        {% for field in form
+            if filed.widget.input_type != 'hidden' %}
+        <p>
+            {{ field.label }}
+            {{ field }}
+            {% for error in field.errors %}
+                {{ error }}
+            {% endfor %}
+        </p>
+        
+        {% endfor %}
+        <button type='submit'>Submit</button>
+    </form>
+
+
 </div>
 
 

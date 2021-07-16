@@ -42,9 +42,16 @@ def add_pet():
         return render_template('add.html', form=form)
 
 
-@app.route('/<int:pet_id>')
+@app.route('/<int:pet_id>', methods=['GET', 'POST'])
 def pet_detail(pet_id):
+    '''Page to show details and edit an existing pet at the adoption page'''
 
+    form = EditPetForm()
 
-
-    return render_template('detail.html')
+    if form.validate_on_submit():
+        photo_url = form.photo_url.data
+        notes = form.notes.data
+        available = form.available.data
+        return redirect('/<int:pet_id>')
+    else:
+        return render_template('detail.html')

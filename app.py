@@ -54,4 +54,4 @@ def show_pet_detail(pet_id):
         available = form.available.data
         return redirect('/<int:pet_id>')
     else:
-        return render_template('detail.html')
+        return render_template('detail.html', form=form)

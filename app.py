@@ -17,7 +17,7 @@ db.create_all()
 
 ### Main routes
 @app.route('/')
-def root():
+def home_page():
     '''Homepage redirects to list of all users'''
     pets = Pet.query.all()
 
@@ -26,7 +26,7 @@ def root():
 
 #
 @app.route('/add', methods=['GET', 'POST'])
-def add_pet():
+def show_add_form():
     '''Page to add a new pet to the adoption agency'''
     
     form = AddPetForm()
@@ -43,7 +43,7 @@ def add_pet():
 
 
 @app.route('/<int:pet_id>', methods=['GET', 'POST'])
-def pet_detail(pet_id):
+def show_pet_detail(pet_id):
     '''Page to show details and edit an existing pet at the adoption page'''
 
     form = EditPetForm()

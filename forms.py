@@ -17,7 +17,7 @@ class AddPetForm(FlaskForm):
 class EditPetForm(FlaskForm):
     '''Form for editing an existsing pet at the adoption agency'''
 
-    photo_url = StringField('Photo URL', validators=[Ooptional()])
+    photo_url = StringField('Photo URL', validators=[Optional()])
     notes = StringField('Notes', validators=[Optional()])
     available = BooleanField('Is Available?', validators=[InputRequired()])
     

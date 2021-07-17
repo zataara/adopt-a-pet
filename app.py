@@ -39,14 +39,14 @@ def show_add_form():
         notes = form.notes.data
         return redirect('/add')
     else:
-        return render_template('add.html', form=form)
+        return render_template('add.html', form=form, pet=pet)
 
 
 @app.route('/<int:pet_id>', methods=['GET', 'POST'])
 def show_pet_detail(pet_id):
     '''Page to show details and edit an existing pet at the adoption page'''
-
-    form = EditPetForm()
+    pet = Pet.query.get_or_404(pet_id)
+    form = EditPetForm(obj=pet)
 
     if form.validate_on_submit():
         photo_url = form.photo_url.data
@@ -54,4 +54,4 @@ def show_pet_detail(pet_id):
         available = form.available.data
         return redirect('/<int:pet_id>')
     else:
-        return render_template('detail.html', form=form)
+        return render_template('detail.html', form=form, pet=pet)

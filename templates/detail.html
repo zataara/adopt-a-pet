@@ -23,7 +23,7 @@
     <form id='edit-pet-form' method='POST'>
         {{ form.hidden_tag() }}
         {% for field in form
-            if filed.widget.input_type != 'hidden' %}
+            if field.widget.input_type != 'hidden' %}
         <p>
             {{ field.label }}
             {{ field }}

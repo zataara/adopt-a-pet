@@ -3,3 +3,6 @@ img {
     width: 200px
 }
 
+.header {
+   display: inline-block; 
+}

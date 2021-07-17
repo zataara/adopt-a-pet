@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, flash, session
+from flask import Flask, request, render_template, redirect, flash, session, url_for
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
 from forms import AddPetForm, EditPetForm
@@ -17,7 +17,7 @@ db.create_all()
 
 ### Main routes
 @app.route('/')
-def home_page():
+def list_pets():
     '''Homepage redirects to list of all users'''
     pets = Pet.query.all()
 
@@ -37,7 +37,7 @@ def show_add_form():
         photo_url = form.photo_url.data
         age = form.age.data
         notes = form.notes.data
-        return redirect('/add')
+        return redirect(url_for('list_pets'))
     else:
         return render_template('add.html', form=form, pet=pet)
 
@@ -49,9 +49,10 @@ def show_pet_detail(pet_id):
     form = EditPetForm(obj=pet)
 
     if form.validate_on_submit():
-        photo_url = form.photo_url.data
-        notes = form.notes.data
-        available = form.available.data
-        return redirect('/<int:pet_id>')
+        pet.photo_url = form.photo_url.data
+        pet.notes = form.notes.data
+        pet.available = form.available.data
+        db.session.commit()
+        return redirect(url_for('list_pets'))
     else:
         return render_template('detail.html', form=form, pet=pet)

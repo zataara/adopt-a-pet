@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, SelectField, IntegerField, BooleanField
-from wtforms.validators import InputRequired, Optional
+from wtforms.validators import InputRequired, Optional, URL, Length, NumberRange
 
 
 class AddPetForm(FlaskForm):
@@ -8,16 +8,16 @@ class AddPetForm(FlaskForm):
 
     name = StringField('Pet Name', validators=[InputRequired()])
     species = SelectField('Species', choises=[('cat', 'Cat'), ('dog', 'Dog'), ('porcupine', 'Porcupine')])
-    photo_url = StringField('Photo Link', validators=[Optional()])
-    age = IntegerField('Age', validators=[Optional()])
-    notes = StringField('Notes', validators=[Optional()])
+    photo_url = StringField('Photo URL', validators=[Optional(), URL()])
+    age = IntegerField('Age', validators=[Optional(), NumberRange(min=0, max=30)])
+    notes = TextAreaField('Comments', validators=[Optional(), Length(min=10)])
 
 
 
 class EditPetForm(FlaskForm):
     '''Form for editing an existsing pet at the adoption agency'''
 
-    photo_url = StringField('Photo URL', validators=[Optional()])
-    notes = StringField('Notes', validators=[Optional()])
-    available = BooleanField('Is Available?', validators=[InputRequired()])
+    photo_url = StringField('Photo URL', validators=[Optional(), URL()])
+    notes = StringField('Notes', validators=[Optional(), Length(min=10)])
+    available = BooleanField('Available?')
     
